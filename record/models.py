@@ -23,15 +23,41 @@ class Record(models.Model):
     lose = models.IntegerField()
     score = models.IntegerField()
 
+
 class Socker(models.Model):
     name = models.CharField(max_length=1024)
     club_id = models.IntegerField()
     club = models.CharField(max_length=1024)
     country = models.CharField(max_length=255)
     birthday = models.TimeField()
-    tall = models.IntegerField()
+    height = models.IntegerField()
     weight = models.IntegerField()
     message = models.CharField(max_length=1024)
 
-class TopGoal(models.Model):
-    pass
+
+class Goal(models.Model):
+    socker_name = models.CharField(max_length=1024)
+    socker_id = models.IntegerField()
+    competition = models.CharField(max_length=512)
+    number = models.IntegerField()
+
+
+class Assist(models.Model):
+    socker_name = models.CharField(max_length=1024)
+    socker_id = models.IntegerField()
+    competition = models.CharField(max_length=512)
+    number = models.IntegerField()
+
+
+class Competition(models.Model):
+    competition = models.CharField(max_length=512)
+    start_time = models.TimeField()
+    home_club_name = models.CharField(max_length=1024)
+    home_club_id = models.IntegerField()
+    home_club_score = models.IntegerField()
+    guest_club_name = models.CharField(max_length=1024)
+    guest_club_id = models.IntegerField()
+    guest_club_score = models.IntegerField()
+
+
+
